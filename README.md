@@ -5,7 +5,7 @@
 go get -u github.com/fgituser/go-pg-generator
 ```
 
-## Exmaple
+## Example
 
 ```
 ✗ go-pg-generator --server localhost --port 5555 --user postgres --password postgres --database=bsk --tables goose_db_version --ssl disable
