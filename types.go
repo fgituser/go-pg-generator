@@ -69,7 +69,7 @@ var (
 func getStruct(tab string, cols []*column) string {
 	var body string
 	for _, c := range cols {
-		body += fmt.Sprintf("\t%s %s `db:%s` // sqltype: %s\n",
+		body += fmt.Sprintf("\t%s %s `db:\"%s\"` // sqltype: %s\n",
 			snake2Camel(c.Name), convertType(c), c.Name, c.Type)
 	}
 

@@ -1,21 +1,23 @@
 # Golang struct generator for PostgreSQL
 
-CLI tool for generation Golang structures by table definition from PostgreSQL.
-
-## Build
-Install Go vendor tool [govendor](https://github.com/kardianos/govendor) and run
+## Install
 ```
-make build
+go get -u github.com/fgituser/go-pg-generator
 ```
 
+## Exmaple
 
-## Dependencies
-### For generated files
-`import "gopkg.in/guregu/null.v3"`
-Provides support for `null` values.
+```
+✗ go-pg-generator --server localhost --port 5555 --user postgres --password postgres --database=bsk --tables goose_db_version --ssl disable
 
-`import "github.com/satori/go.uuid"`
-Provides support for `uuid.UUID` values.
+type GooseDbVersion struct {
+        ID int32 `db:"id"` // sqltype: int4
+        VersionID int64 `db:"version_id"` // sqltype: int8
+        IsApplied bool `db:"is_applied"` // sqltype: bool
+        Tstamp null.Time `db:"tstamp"` // sqltype: timestamp
+}
+
+```
 
 ## Help
 ```
